@@ -20,7 +20,7 @@ public class EmpleadoPostRequest {
     private int salary;
 
     @Min(value = 1, message = "El ID del jefe debe ser un número positivo")
-    private Integer bossId;
+    private Integer bossId; 
 
     @Min(value = 1, message = "El ID del departamento debe ser un número positivo")
     private Integer departamentId;
@@ -40,11 +40,11 @@ public class EmpleadoPostRequest {
 		this.bossId = bossId;
 		this.departamentId = departamentId;
 	}
-	public EmpleadoPostRequest() {
-		super();
-	}
 	public Integer getId() {
 		return id;
+	}
+	public EmpleadoPostRequest() {
+		super();
 	}
 	public void setId(int id) {
 		this.id = id;
