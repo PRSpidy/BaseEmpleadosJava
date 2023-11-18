@@ -91,7 +91,7 @@ public class EmpleadosControllerImpl {
 	}	
 	
 	@PutMapping("/empleados/{id}")
-	public ResponseEntity<?>  updateEmpleado(@PathVariable("id") int id, @RequestBody EmpleadoPostRequest empleadoPostRequest) throws EmpleadoNotEditException{
+	public ResponseEntity<?>  updateEmpleado(@PathVariable("id") int id, @Valid @RequestBody EmpleadoPostRequest empleadoPostRequest) throws EmpleadoNotEditException{
 		empleadoPostRequest.setId(id);
 
 		try {

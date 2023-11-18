@@ -3,8 +3,6 @@ package com.example.empleados.model;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Null;
-
 public class EmpleadoPostRequest {
 	@NotNull(message = "El ID no puede ser nulo")
     @Min(value = 1, message = "El ID debe ser un número positivo")
@@ -30,8 +28,14 @@ public class EmpleadoPostRequest {
 		return "EmpleadoPostRequest [id=" + id + ", name=" + name + ", position=" + position + ", salary=" + salary
 				+ ", bossId=" + bossId + ", departamentId=" + departamentId + "]";
 	}
-	public EmpleadoPostRequest(Integer id, String name, String position, int salary, Integer bossId,
-			Integer departamentId) {
+	
+	public EmpleadoPostRequest(
+			@NotNull(message = "El ID no puede ser nulo") @Min(value = 1, message = "El ID debe ser un número positivo") Integer id,
+			@NotBlank(message = "El nombre no puede estar en blanco") String name,
+			@NotBlank(message = "La posición no puede estar en blanco") String position,
+			@Min(value = 0, message = "El salario no puede ser negativo") int salary,
+			@Min(value = 1, message = "El ID del jefe debe ser un número positivo") Integer bossId,
+			@Min(value = 1, message = "El ID del departamento debe ser un número positivo") Integer departamentId) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -40,6 +44,7 @@ public class EmpleadoPostRequest {
 		this.bossId = bossId;
 		this.departamentId = departamentId;
 	}
+
 	public Integer getId() {
 		return id;
 	}
