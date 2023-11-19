@@ -71,7 +71,6 @@ public class EmpleadosControllerImpl {
 		empleadoPostRequest.setId(0);
 		try {
 			int response = empleadoService.createEmpleado(ConvertidorClases.convertirClases(empleadoPostRequest, EmpleadoDTO.class));
-			System.out.println(response);
 			return new ResponseEntity<Integer>(response, HttpStatus.CREATED);
 		} catch (EmpleadoNotCreatedException e) {
 			
